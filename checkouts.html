@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!-- Top Start: everything from here through the Nav -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkouts | Wasatch Gear Library</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+<!-- Nav Start -->
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">&#9650; Wasatch Gear Library</a>
+    <ul class="navbar-nav ms-auto flex-row gap-3">
+      <li class="nav-item"><a class="nav-link" href="gear.html">Gear</a></li>
+      <li class="nav-item"><a class="nav-link" href="members.html">Members</a></li>
+      <li class="nav-item"><a class="nav-link" href="checkouts.html">Checkouts</a></li>
+      <li class="nav-item"><a class="btn btn-light btn-sm mt-1" href="checkout-new.html">Check Out Gear</a></li>
+    </ul>
+  </div>
+</nav>
+<!-- Nav End -->
+
+<main class="container py-4 flex-grow-1">
+
+<!-- Alert (Question 12: only shown after a redirect with ?notice=...) Start -->
+<div class="alert alert-success d-flex justify-content-between align-items-center" role="status">
+    <span>Gear checked out.</span>
+    <a href="#" class="btn-close" aria-label="Dismiss"></a>
+  </div>
+<!-- Alert (Question 12: only shown after a redirect with ?notice=...) End -->
+
+<!-- Top End -->
+
+<!-- Page Header Start -->
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h1 class="h3 mb-0">Checkouts</h1>
+    <p class="text-muted mb-0">3 item(s) out right now</p>
+  </div>
+  
+    <a class="btn btn-primary" href="checkout-new.html">+ Check Out Gear</a>
+  
+</div>
+<!-- Page Header End -->
+
+<!-- Checkout Table Start -->
+<div class="table-responsive">
+    <table class="table table-hover align-middle bg-white shadow-sm rounded">
+      <thead class="table-light">
+        <tr><th>Gear</th><th>Member</th><th>Checked out</th><th>Status</th><th></th></tr>
+      </thead>
+      <tbody>
+        
+<!-- Checkout Row Start (one is marked; the rest repeat it) -->
+<tr>
+  <td><a href="gear-detail.html">MSR Lightning Ascent Snowshoes</a></td>
+  <td><a href="member-detail.html">Bruce Banner</a></td>
+  <td>2026-10-03</td>
+  <td>
+
+<!-- Due Badge Start (one is marked; the rest repeat it) -->
+<span class="badge bg-danger">Overdue (due 2026-10-11)</span>
+<!-- Due Badge End -->
+
+  </td>
+  <td class="text-end">
+    
+      <form method="POST" action="/checkouts/2/return" class="d-inline">
+        <button class="btn btn-outline-primary btn-sm">Mark returned</button>
+      </form>
+    
+  </td>
+</tr>
+<!-- Checkout Row End -->
+<tr>
+  <td><a href="gear-detail.html">REI Half Dome 2 Tent</a></td>
+  <td><a href="member-detail.html">Diana Prince</a></td>
+  <td>2026-10-10</td>
+  <td>
+
+<span class="badge bg-secondary">Due 2026-10-15</span>
+
+  </td>
+  <td class="text-end">
+    
+      <form method="POST" action="/checkouts/1/return" class="d-inline">
+        <button class="btn btn-outline-primary btn-sm">Mark returned</button>
+      </form>
+    
+  </td>
+</tr>
+<tr>
+  <td><a href="gear-detail.html">Osprey Atmos 65 Backpack</a></td>
+  <td><a href="member-detail.html">Peter Parker</a></td>
+  <td>2026-10-12</td>
+  <td>
+
+<span class="badge bg-secondary">Due 2026-10-19</span>
+
+  </td>
+  <td class="text-end">
+    
+      <form method="POST" action="/checkouts/3/return" class="d-inline">
+        <button class="btn btn-outline-primary btn-sm">Mark returned</button>
+      </form>
+    
+  </td>
+</tr>
+
+      </tbody>
+    </table>
+  </div>
+<!-- Checkout Table End -->
+
+<h2 class="h5 my-3">Recently returned</h2>
+
+<!-- Checkout Table Start -->
+<div class="table-responsive">
+    <table class="table table-hover align-middle bg-white shadow-sm rounded">
+      <thead class="table-light">
+        <tr><th>Gear</th><th>Member</th><th>Checked out</th><th>Status</th><th></th></tr>
+      </thead>
+      <tbody>
+        <tr>
+  <td><a href="gear-detail.html">Black Diamond Trail Trekking Poles</a></td>
+  <td><a href="member-detail.html">Diana Prince</a></td>
+  <td>2026-09-03</td>
+  <td>
+    
+      <span class="text-muted">Returned 2026-09-08</span>
+    
+  </td>
+  <td class="text-end">
+    
+  </td>
+</tr>
+
+      </tbody>
+    </table>
+  </div>
+<!-- Checkout Table End -->
+
+<!-- Bottom Start -->
+</main>
+<footer class="border-top py-3 mt-auto bg-light">
+  <div class="container small text-muted d-flex justify-content-between">
+    <span>Wasatch Gear Library &middot; Borrow it, use it, bring it back clean.</span>
+    <span>IS 5770/6770 Midterm</span>
+  </div>
+</footer>
+</body>
+</html>
+<!-- Bottom End -->
+

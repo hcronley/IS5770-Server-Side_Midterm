@@ -1,0 +1,58 @@
+<%- include('partials/layout/top') %>
+
+<div class="p-4 mb-4 rounded-3 bg-white shadow-sm hero">
+  <h1 class="h2 fw-bold">Get outside. We've got the gear.</h1>
+  <p class="lead text-muted mb-3">Track every tent, ski, and headlamp the Wasatch Gear Library lends to members.</p>
+  <a href="/checkouts/new" class="btn btn-primary">Check out gear</a>
+  <a href="/gear" class="btn btn-outline-primary ms-2">Browse the catalog</a>
+</div>
+
+<div class="row g-3 mb-4">
+
+  <div class="col-6 col-md-3">
+    <a href="/gear" class="text-decoration-none">
+      <div class="card shadow-sm h-100 border-primary">
+        <div class="card-body">
+          <div class="text-muted small text-uppercase">Gear items</div>
+          <div class="display-6 fw-bold text-primary">0</div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-6 col-md-3">
+    <a href="/members" class="text-decoration-none">
+      <div class="card shadow-sm h-100 border-info">
+        <div class="card-body">
+          <div class="text-muted small text-uppercase">Members</div>
+          <div class="display-6 fw-bold text-info">0</div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-6 col-md-3">
+    <a href="/checkouts" class="text-decoration-none">
+      <div class="card shadow-sm h-100 border-warning">
+        <div class="card-body">
+          <div class="text-muted small text-uppercase">Checked out</div>
+          <div class="display-6 fw-bold text-warning">0</div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-6 col-md-3">
+    <a href="/checkouts" class="text-decoration-none">
+      <div class="card shadow-sm h-100 border-danger">
+        <div class="card-body">
+          <div class="text-muted small text-uppercase">Overdue</div>
+          <div class="display-6 fw-bold text-danger">0</div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+</div>
+
+<%- include('partials/layout/bottom') %>

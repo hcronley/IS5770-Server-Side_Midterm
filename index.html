@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!-- Top Start: everything from here through the Nav -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Wasatch Gear Library</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+<!-- Nav Start -->
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">&#9650; Wasatch Gear Library</a>
+    <ul class="navbar-nav ms-auto flex-row gap-3">
+      <li class="nav-item"><a class="nav-link" href="gear.html">Gear</a></li>
+      <li class="nav-item"><a class="nav-link" href="members.html">Members</a></li>
+      <li class="nav-item"><a class="nav-link" href="checkouts.html">Checkouts</a></li>
+      <li class="nav-item"><a class="btn btn-light btn-sm mt-1" href="checkout-new.html">Check Out Gear</a></li>
+    </ul>
+  </div>
+</nav>
+<!-- Nav End -->
+
+<main class="container py-4 flex-grow-1">
+
+<!-- Top End -->
+
+<div class="p-4 mb-4 rounded-3 bg-white shadow-sm hero">
+  <h1 class="h2 fw-bold">Get outside. We've got the gear.</h1>
+  <p class="lead text-muted mb-3">Track every tent, ski, and headlamp the Wasatch Gear Library lends to members.</p>
+  <a href="checkout-new.html" class="btn btn-primary">Check out gear</a>
+  <a href="gear.html" class="btn btn-outline-primary ms-2">Browse the catalog</a>
+</div>
+
+<div class="row g-3 mb-4">
+  
+<!-- Stat Card Start (one is marked; the rest repeat it) -->
+<div class="col-6 col-md-3">
+  <a href="gear.html" class="text-decoration-none">
+    <div class="card shadow-sm h-100 border-primary">
+      <div class="card-body">
+        <div class="text-muted small text-uppercase">Gear items</div>
+        <div class="display-6 fw-bold text-primary">10</div>
+      </div>
+    </div>
+  </a>
+</div>
+<!-- Stat Card End -->
+
+  <div class="col-6 col-md-3">
+  <a href="members.html" class="text-decoration-none">
+    <div class="card shadow-sm h-100 border-info">
+      <div class="card-body">
+        <div class="text-muted small text-uppercase">Members</div>
+        <div class="display-6 fw-bold text-info">5</div>
+      </div>
+    </div>
+  </a>
+</div>
+
+  <div class="col-6 col-md-3">
+  <a href="checkouts.html" class="text-decoration-none">
+    <div class="card shadow-sm h-100 border-warning">
+      <div class="card-body">
+        <div class="text-muted small text-uppercase">Checked out</div>
+        <div class="display-6 fw-bold text-warning">3</div>
+      </div>
+    </div>
+  </a>
+</div>
+
+  <div class="col-6 col-md-3">
+  <a href="checkouts.html" class="text-decoration-none">
+    <div class="card shadow-sm h-100 border-danger">
+      <div class="card-body">
+        <div class="text-muted small text-uppercase">Overdue</div>
+        <div class="display-6 fw-bold text-danger">1</div>
+      </div>
+    </div>
+  </a>
+</div>
+
+</div>
+
+<h2 class="h5 mb-3">Due next</h2>
+
+<!-- Checkout Table Start -->
+<div class="table-responsive">
+    <table class="table table-hover align-middle bg-white shadow-sm rounded">
+      <thead class="table-light">
+        <tr><th>Gear</th><th>Member</th><th>Checked out</th><th>Status</th><th></th></tr>
+      </thead>
+      <tbody>
+        
+<!-- Checkout Row Start (one is marked; the rest repeat it) -->
+<tr>
+  <td><a href="gear-detail.html">MSR Lightning Ascent Snowshoes</a></td>
+  <td><a href="member-detail.html">Bruce Banner</a></td>
+  <td>2026-10-03</td>
+  <td>
+
+<!-- Due Badge Start (one is marked; the rest repeat it) -->
+<span class="badge bg-danger">Overdue (due 2026-10-11)</span>
+<!-- Due Badge End -->
+
+  </td>
+  <td class="text-end">
+    
+      <form method="POST" action="/checkouts/2/return" class="d-inline">
+        <button class="btn btn-outline-primary btn-sm">Mark returned</button>
+      </form>
+    
+  </td>
+</tr>
+<!-- Checkout Row End -->
+<tr>
+  <td><a href="gear-detail.html">REI Half Dome 2 Tent</a></td>
+  <td><a href="member-detail.html">Diana Prince</a></td>
+  <td>2026-10-10</td>
+  <td>
+
+<span class="badge bg-secondary">Due 2026-10-15</span>
+
+  </td>
+  <td class="text-end">
+    
+      <form method="POST" action="/checkouts/1/return" class="d-inline">
+        <button class="btn btn-outline-primary btn-sm">Mark returned</button>
+      </form>
+    
+  </td>
+</tr>
+<tr>
+  <td><a href="gear-detail.html">Osprey Atmos 65 Backpack</a></td>
+  <td><a href="member-detail.html">Peter Parker</a></td>
+  <td>2026-10-12</td>
+  <td>
+
+<span class="badge bg-secondary">Due 2026-10-19</span>
+
+  </td>
+  <td class="text-end">
+    
+      <form method="POST" action="/checkouts/3/return" class="d-inline">
+        <button class="btn btn-outline-primary btn-sm">Mark returned</button>
+      </form>
+    
+  </td>
+</tr>
+
+      </tbody>
+    </table>
+  </div>
+<!-- Checkout Table End -->
+
+<!-- Bottom Start -->
+</main>
+<footer class="border-top py-3 mt-auto bg-light">
+  <div class="container small text-muted d-flex justify-content-between">
+    <span>Wasatch Gear Library &middot; Borrow it, use it, bring it back clean.</span>
+    <span>IS 5770/6770 Midterm</span>
+  </div>
+</footer>
+</body>
+</html>
+<!-- Bottom End -->
+

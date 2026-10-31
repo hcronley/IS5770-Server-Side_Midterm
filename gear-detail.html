@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!-- Top Start: everything from here through the Nav -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REI Half Dome 2 Tent | Wasatch Gear Library</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+<!-- Nav Start -->
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">&#9650; Wasatch Gear Library</a>
+    <ul class="navbar-nav ms-auto flex-row gap-3">
+      <li class="nav-item"><a class="nav-link" href="gear.html">Gear</a></li>
+      <li class="nav-item"><a class="nav-link" href="members.html">Members</a></li>
+      <li class="nav-item"><a class="nav-link" href="checkouts.html">Checkouts</a></li>
+      <li class="nav-item"><a class="btn btn-light btn-sm mt-1" href="checkout-new.html">Check Out Gear</a></li>
+    </ul>
+  </div>
+</nav>
+<!-- Nav End -->
+
+<main class="container py-4 flex-grow-1">
+
+<!-- Top End -->
+
+<nav class="small mb-2"><a href="gear.html">&larr; All gear</a></nav>
+<div class="card shadow-sm mb-4">
+  <div class="card-body">
+    <div class="d-flex justify-content-between align-items-start">
+      <div>
+        <h1 class="h3 mb-1">REI Half Dome 2 Tent</h1>
+        <p class="text-muted mb-2">Camping &middot; Excellent condition &middot; $12.00/day</p>
+        
+<!-- Status Badge Start (one is marked; the rest repeat it) -->
+<span class="badge bg-secondary">Checked out</span>
+<!-- Status Badge End -->
+
+      </div>
+      <div class="text-end">
+        <a href="gear-form.html" class="btn btn-outline-secondary btn-sm">Edit</a>
+        
+      </div>
+    </div>
+    <p class="mt-3 mb-0">Two-person, three-season backpacking tent.</p>
+  </div>
+</div>
+
+<h2 class="h5 mb-3">Checkout history</h2>
+
+<!-- Checkout Table Start -->
+<div class="table-responsive">
+    <table class="table table-hover align-middle bg-white shadow-sm rounded">
+      <thead class="table-light">
+        <tr><th>Gear</th><th>Member</th><th>Checked out</th><th>Status</th><th></th></tr>
+      </thead>
+      <tbody>
+        
+<!-- Checkout Row Start (one is marked; the rest repeat it) -->
+<tr>
+  <td><a href="gear-detail.html">REI Half Dome 2 Tent</a></td>
+  <td><a href="member-detail.html">Diana Prince</a></td>
+  <td>2026-10-10</td>
+  <td>
+
+<!-- Due Badge Start (one is marked; the rest repeat it) -->
+<span class="badge bg-secondary">Due 2026-10-15</span>
+<!-- Due Badge End -->
+
+  </td>
+  <td class="text-end">
+    
+      <form method="POST" action="/checkouts/1/return" class="d-inline">
+        <button class="btn btn-outline-primary btn-sm">Mark returned</button>
+      </form>
+    
+  </td>
+</tr>
+<!-- Checkout Row End -->
+
+      </tbody>
+    </table>
+  </div>
+<!-- Checkout Table End -->
+
+<!-- Bottom Start -->
+</main>
+<footer class="border-top py-3 mt-auto bg-light">
+  <div class="container small text-muted d-flex justify-content-between">
+    <span>Wasatch Gear Library &middot; Borrow it, use it, bring it back clean.</span>
+    <span>IS 5770/6770 Midterm</span>
+  </div>
+</footer>
+</body>
+</html>
+<!-- Bottom End -->
+

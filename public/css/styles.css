@@ -1,0 +1,5 @@
+/* Small overrides on top of the Bootswatch "Cerulean" theme */
+body { background: #f4f7fa; }
+.hero { border-left: 6px solid var(--bs-primary); }
+.table { border-radius: .5rem; overflow: hidden; }
+.card { border-radius: .75rem; }

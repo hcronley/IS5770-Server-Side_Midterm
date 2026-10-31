@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- Top Start: everything from here through the Nav -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Check Out Gear | Wasatch Gear Library</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+<!-- Nav Start -->
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">&#9650; Wasatch Gear Library</a>
+    <ul class="navbar-nav ms-auto flex-row gap-3">
+      <li class="nav-item"><a class="nav-link" href="gear.html">Gear</a></li>
+      <li class="nav-item"><a class="nav-link" href="members.html">Members</a></li>
+      <li class="nav-item"><a class="nav-link" href="checkouts.html">Checkouts</a></li>
+      <li class="nav-item"><a class="btn btn-light btn-sm mt-1" href="checkout-new.html">Check Out Gear</a></li>
+    </ul>
+  </div>
+</nav>
+<!-- Nav End -->
+
+<main class="container py-4 flex-grow-1">
+
+<!-- Top End -->
+
+<nav class="small mb-2"><a href="checkouts.html">&larr; Checkouts</a></nav>
+<div class="row justify-content-center">
+  <div class="col-lg-6">
+    <div class="card shadow-sm"><div class="card-body">
+      <h1 class="h4 mb-3">Check out gear</h1>
+
+      <form method="POST" action="/checkouts">
+        <div class="mb-3">
+          <label class="form-label" for="gearId">Gear (available only)</label>
+          <select class="form-select" id="gearId" name="gearId" required>
+            <option value="">Choose gear...</option>
+            <option value="1" >Black Diamond Trail Trekking Poles ($3.00/day)</option><option value="10" >Garmin inReach Mini 2 ($7.00/day)</option><option value="4" >Jetboil Flash Stove ($5.00/day)</option><option value="3" >Kelty Cosmic 20 Sleeping Bag ($6.00/day)</option><option value="8" >Perception Pescador 10 Kayak ($25.00/day)</option><option value="7" >Petzl Actik Headlamp ($2.00/day)</option><option value="9" >Rossignol Backcountry Skis ($30.00/day)</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="memberId">Member</label>
+          <select class="form-select" id="memberId" name="memberId" required>
+            <option value="">Choose member...</option>
+            <option value="2" >Bruce Banner</option><option value="4" >Carol Danvers</option><option value="5" >Miles Morales</option><option value="3" >Peter Parker</option><option value="1" >Diana Prince</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="dueOn">Due back</label>
+          <input class="form-control" type="date" id="dueOn" name="dueOn" value="" required>
+        </div>
+        <button class="btn btn-primary w-100">Check out</button>
+      </form>
+      
+    </div></div>
+  </div>
+</div>
+
+<!-- Bottom Start -->
+</main>
+<footer class="border-top py-3 mt-auto bg-light">
+  <div class="container small text-muted d-flex justify-content-between">
+    <span>Wasatch Gear Library &middot; Borrow it, use it, bring it back clean.</span>
+    <span>IS 5770/6770 Midterm</span>
+  </div>
+</footer>
+</body>
+</html>
+<!-- Bottom End -->
+

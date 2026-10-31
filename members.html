@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!-- Top Start: everything from here through the Nav -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Members | Wasatch Gear Library</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+<!-- Nav Start -->
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">&#9650; Wasatch Gear Library</a>
+    <ul class="navbar-nav ms-auto flex-row gap-3">
+      <li class="nav-item"><a class="nav-link" href="gear.html">Gear</a></li>
+      <li class="nav-item"><a class="nav-link" href="members.html">Members</a></li>
+      <li class="nav-item"><a class="nav-link" href="checkouts.html">Checkouts</a></li>
+      <li class="nav-item"><a class="btn btn-light btn-sm mt-1" href="checkout-new.html">Check Out Gear</a></li>
+    </ul>
+  </div>
+</nav>
+<!-- Nav End -->
+
+<main class="container py-4 flex-grow-1">
+
+<!-- Top End -->
+
+<!-- Page Header Start -->
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h1 class="h3 mb-0">Members</h1>
+    <p class="text-muted mb-0">5 people can borrow gear</p>
+  </div>
+  
+</div>
+<!-- Page Header End -->
+
+<div class="row g-4">
+  <div class="col-lg-8">
+    <div class="table-responsive">
+      <table class="table table-hover align-middle bg-white shadow-sm">
+        <thead class="table-light"><tr><th>Name</th><th>Email</th><th>Joined</th><th>Out now</th></tr></thead>
+        <tbody>
+          
+            <tr>
+              <td><a href="member-detail.html" class="fw-semibold">Bruce Banner</a></td>
+              <td>bruce.banner@example.com</td>
+              <td>2026-03-17</td>
+              <td><span class="badge bg-warning">1</span></td>
+            </tr>
+          
+            <tr>
+              <td><a href="member-detail.html" class="fw-semibold">Carol Danvers</a></td>
+              <td>carol.danvers@example.com</td>
+              <td>2026-09-13</td>
+              <td><span class="badge bg-light text-dark">0</span></td>
+            </tr>
+          
+            <tr>
+              <td><a href="member-detail.html" class="fw-semibold">Miles Morales</a></td>
+              <td>miles.morales@example.com</td>
+              <td>2026-10-06</td>
+              <td><span class="badge bg-light text-dark">0</span></td>
+            </tr>
+          
+            <tr>
+              <td><a href="member-detail.html" class="fw-semibold">Peter Parker</a></td>
+              <td>peter.parker@example.com</td>
+              <td>2026-07-10</td>
+              <td><span class="badge bg-warning">1</span></td>
+            </tr>
+          
+            <tr>
+              <td><a href="member-detail.html" class="fw-semibold">Diana Prince</a></td>
+              <td>diana.prince@example.com</td>
+              <td>2025-09-08</td>
+              <td><span class="badge bg-warning">1</span></td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="card shadow-sm"><div class="card-body">
+      <h2 class="h5">Add a member</h2>
+
+      <form method="POST" action="/members">
+        <input class="form-control mb-2" name="firstName" placeholder="First name" value="" required>
+        <input class="form-control mb-2" name="lastName" placeholder="Last name" value="" required>
+        <input class="form-control mb-3" name="email" type="email" placeholder="Email" value="" required>
+        <button class="btn btn-primary w-100">Add member</button>
+      </form>
+    </div></div>
+  </div>
+</div>
+
+<!-- Bottom Start -->
+</main>
+<footer class="border-top py-3 mt-auto bg-light">
+  <div class="container small text-muted d-flex justify-content-between">
+    <span>Wasatch Gear Library &middot; Borrow it, use it, bring it back clean.</span>
+    <span>IS 5770/6770 Midterm</span>
+  </div>
+</footer>
+</body>
+</html>
+<!-- Bottom End -->
+
