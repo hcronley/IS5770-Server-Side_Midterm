@@ -1,0 +1,61 @@
+<%- include('../partials/layout/top') %>
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="h3 mb-0">Gear Catalog</h1>
+            <p class="text-muted mb-0">
+                <%= gearItems.length %> item(s)
+            </p>
+        </div>
+        <a class="btn btn-primary" href="/gear/new">+ Add Gear</a>
+    </div>
+
+    <div class="mb-3">
+        <a href="/gear" class="btn btn-sm <%= currentCategory ? 'btn-outline-secondary' : 'btn-secondary' %>">All</a>
+        <% categories.forEach(function (category) { %>
+            <a href="/gear?category=<%= encodeURIComponent(category) %>"
+                class="btn btn-sm <%= category === currentCategory ? 'btn-secondary' : 'btn-outline-secondary' %>">
+                <%= category %>
+            </a>
+            <% }) %>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover align-middle bg-white shadow-sm">
+            <thead class="table-light">
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Condition</th>
+                    <th>Daily fee</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% gearItems.forEach(function (item) { %>
+                    <tr>
+                        <td><a href="/gear/<%= item.id %>" class="fw-semibold">
+                                <%= item.name %>
+                            </a></td>
+                        <td>
+                            <%= item.category %>
+                        </td>
+                        <td>
+                            <%= item.condition %>
+                        </td>
+                        <td>$<%= Number(item.dailyFee).toFixed(2) %>
+                        </td>
+                        <td>
+                            <% if (checkedOutIds.has(item.id)) { %>
+                                <span class="badge bg-secondary">Checked out</span>
+                                <% } else { %>
+                                    <span class="badge bg-success">Available</span>
+                                    <% } %>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+    <%- include('../partials/layout/bottom') %>

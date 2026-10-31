@@ -47,6 +47,9 @@ app.get('/', async (req, res) => {
     });
 });
 
+const gearRouter = require("./routes/Gear");
+app.use("/gear", gearRouter);
+
 postgres.initialize().then(()=>{
   app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
