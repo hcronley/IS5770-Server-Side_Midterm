@@ -8,3 +8,5 @@ class Checkout {
         this.member = member;
     }
 }
+
+module.exports = Checkout;
