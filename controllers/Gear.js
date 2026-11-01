@@ -2,6 +2,11 @@ const postgres = require("../app-data-source");
 const { IsNull } = require("typeorm");
 const { today } = require("../utils/dates");
 
+function parseId(value) {
+    const id = Number(value);
+    return Number.isInteger(id) ? id : null;
+}
+
 async function index(req, res) {
     const gearRepo = postgres.getRepository("Gear");
     const checkoutRepo = postgres.getRepository("Checkout");
@@ -71,4 +76,61 @@ async function show(req, res) {
         });
 }
 
-module.exports = { index, show };
+async function newForm(req, res) {
+    res.render("Gear/form", {
+        title: "Add Gear",
+        gear: null,
+        action: "/gear"
+    });
+}
+
+async function create(req, res) {
+    const gearRepo = postgres.getRepository("Gear");
+
+    const saved = await gearRepo.save({
+        name: req.body.name,
+        category: req.body.category,
+        condition: req.body.condition,
+        dailyFee: Number(req.body.dailyFee),
+        description: req.body.description
+    });
+
+    res.redirect("/gear/" + saved.id);
+}
+
+async function editForm(req, res) {
+    const id = parseId(req.params.id);
+    if (id === null) return res.status(404).send("Gear not found");
+
+    const gearRepo = postgres.getRepository("Gear");
+    const gear = await gearRepo.findOne({ where: { id } });
+    if (!gear) return res.status(404).send("Gear not found");
+
+    res.render("Gear/form", {
+        title: "Edit " + gear.name,
+        gear,
+        action: "/gear/" + gear.id + "/edit"
+    });
+}
+
+async function update(req, res) {
+    const id = parseId(req.params.id);
+    if (id === null) return res.status(404).send("Gear not found");
+
+    const gearRepo = postgres.getRepository("Gear");
+    const gear = await gearRepo.findOne({ where: { id } });
+
+    if (!gear) return res.status(404).send("Gear not found");
+
+    gear.name = req.body.name;
+    gear.category = req.body.category;
+    gear.condition = req.body.condition;
+    gear.description = req.body.description;
+    gear.dailyFee = Number(req.body.dailyFee);
+
+    await gearRepo.save(gear);
+
+    res.redirect("/gear/" + gear.id);
+}
+
+module.exports = { index, show, parseId, newForm, create, editForm, update };
