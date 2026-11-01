@@ -1,52 +1,37 @@
-<% const emptyMsg=typeof emptyMessage !=='undefined' ? emptyMessage : 'Nothing to show.' ; %>
-    <% if (checkouts.length===0) { %>
-        <div class="bg-white shadow-sm rounded p-4 text-center text-muted">
-            <%= emptyMsg %>
-        </div>
-        <% } else { %>
-            <div class="table-responsive">
-                <table class="table table-hover align-middle bg-white shadow-sm rounded">
-                    <thead class="table-light">
-                        <tr>
-                            <th>Gear</th>
-                            <th>Member</th>
-                            <th>Checked out</th>
-                            <th>Status</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% checkouts.forEach(function (checkout) { %>
-                            <tr>
-                                <td><a href="/gear/<%= checkout.gear.id %>">
-                                        <%= checkout.gear.name %>
-                                    </a></td>
-                                <td><a href="/members/<%= checkout.member.id %>">
-                                        <%= checkout.member.getFullName() %>
-                                    </a></td>
-                                <td>
-                                    <%= checkout.checkedOutOn %>
-                                </td>
-                                <td>
-                                    <% if (checkout.returnedOn) { %>
-                                        <span class="text-muted">Returned <%= checkout.returnedOn %></span>
-                                        <% } else if (checkout.dueOn < today) { %>
-                                            <span class="badge bg-danger">Overdue (due <%= checkout.dueOn %>)</span>
-                                            <% } else { %>
-                                                <span class="badge bg-secondary">Due <%= checkout.dueOn %></span>
-                                                <% } %>
-                                </td>
-                                <td class="text-end">
-                                    <% if (!checkout.returnedOn) { %>
-                                        <form method="POST" action="/checkouts/<%= checkout.id %>/return"
-                                            class="d-inline">
-                                            <button class="btn btn-outline-primary btn-sm">Mark returned</button>
-                                        </form>
-                                        <% } %>
-                                </td>
-                            </tr>
-                            <% }) %>
-                    </tbody>
-                </table>
-            </div>
-        <% } %>
+<% const emptyMsg = typeof emptyMessage !== 'undefined' ? emptyMessage : 'Nothing to show.'; %>
+<% if (checkouts.length === 0) { %>
+  <div class="bg-white shadow-sm rounded p-4 text-center text-muted"><%= emptyMsg %></div>
+<% } else { %>
+  <div class="table-responsive">
+    <table class="table table-hover align-middle bg-white shadow-sm rounded">
+      <thead class="table-light">
+        <tr><th>Gear</th><th>Member</th><th>Checked out</th><th>Status</th><th></th></tr>
+      </thead>
+      <tbody>
+        <% checkouts.forEach(function (checkout) { %>
+          <tr>
+            <td><a href="/gear/<%= checkout.gear.id %>"><%= checkout.gear.name %></a></td>
+            <td><a href="/members/<%= checkout.member.id %>"><%= checkout.member.getFullName() %></a></td>
+            <td><%= checkout.checkedOutOn %></td>
+            <td>
+              <% if (checkout.returnedOn) { %>
+                <span class="text-muted">Returned <%= checkout.returnedOn %></span>
+              <% } else if (checkout.dueOn < today) { %>
+                <span class="badge bg-danger">Overdue (due <%= checkout.dueOn %>)</span>
+              <% } else { %>
+                <span class="badge bg-secondary">Due <%= checkout.dueOn %></span>
+              <% } %>
+            </td>
+            <td class="text-end">
+              <% if (!checkout.returnedOn) { %>
+                <form method="POST" action="/checkouts/<%= checkout.id %>/return" class="d-inline">
+                  <button class="btn btn-outline-primary btn-sm">Mark returned</button>
+                </form>
+              <% } %>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+<% } %>

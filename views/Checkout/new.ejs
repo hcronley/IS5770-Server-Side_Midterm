@@ -1,52 +1,44 @@
 <%- include('../partials/layout/top') %>
 
-    <% const f=form || {}; %>
+<% const f = form || {}; %>
 
-        <nav class="small mb-2"><a href="/checkouts">&larr; Checkouts</a></nav>
-        <div class="row justify-content-center">
-            <div class="col-lg-6">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <h1 class="h4 mb-3">Check out gear</h1>
+<nav class="small mb-2"><a href="/checkouts">&larr; Checkouts</a></nav>
+<div class="row justify-content-center">
+  <div class="col-lg-6">
+    <div class="card shadow-sm"><div class="card-body">
+      <h1 class="h4 mb-3">Check out gear</h1>
 
-                        <form method="POST" action="/checkouts">
-                            <div class="mb-3">
-                                <label class="form-label" for="gearId">Gear (available only)</label>
-                                <select class="form-select" id="gearId" name="gearId" required>
-                                    <option value="">Choose gear...</option>
-                                    <% availableGear.forEach(function (g) { %>
-                                        <option value="<%= g.id %>" <%=String(g.id)===String(f.gearId) ? 'selected' : ''
-                                            %>><%= g.name %> ($<%= Number(g.dailyFee).toFixed(2) %>/day)</option>
-                                        <% }) %>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="memberId">Member</label>
-                                <select class="form-select" id="memberId" name="memberId" required>
-                                    <option value="">Choose member...</option>
-                                    <% members.forEach(function (m) { %>
-                                        <option value="<%= m.id %>" <%=String(m.id)===String(f.memberId) ? 'selected'
-                                            : '' %>><%= m.getFullName() %>
-                                        </option>
-                                        <% }) %>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="dueOn">Due back</label>
-                                <input class="form-control" type="date" id="dueOn" name="dueOn"
-                                    value="<%= f.dueOn || '' %>" required>
-                            </div>
-                            <button class="btn btn-primary w-100">Check out</button>
-                        </form>
-
-                        <% if (error) { %>
-                            <div class="alert alert-danger mt-3" role="alert">
-                                <%= error %>
-                            </div>
-                            <% } %>
-                    </div>
-                </div>
-            </div>
+      <form method="POST" action="/checkouts">
+        <div class="mb-3">
+          <label class="form-label" for="gearId">Gear (available only)</label>
+          <select class="form-select" id="gearId" name="gearId" required>
+            <option value="">Choose gear...</option>
+            <% availableGear.forEach(function (g) { %>
+              <option value="<%= g.id %>" <%= String(g.id) === String(f.gearId) ? 'selected' : '' %>><%= g.name %> ($<%= Number(g.dailyFee).toFixed(2) %>/day)</option>
+            <% }) %>
+          </select>
         </div>
+        <div class="mb-3">
+          <label class="form-label" for="memberId">Member</label>
+          <select class="form-select" id="memberId" name="memberId" required>
+            <option value="">Choose member...</option>
+            <% members.forEach(function (m) { %>
+              <option value="<%= m.id %>" <%= String(m.id) === String(f.memberId) ? 'selected' : '' %>><%= m.getFullName() %></option>
+            <% }) %>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="dueOn">Due back</label>
+          <input class="form-control" type="date" id="dueOn" name="dueOn" value="<%= f.dueOn || '' %>" required>
+        </div>
+        <button class="btn btn-primary w-100">Check out</button>
+      </form>
 
-        <%- include('../partials/layout/bottom') %>
+      <% if (error) { %>
+        <div class="alert alert-danger mt-3" role="alert"><%= error %></div>
+      <% } %>
+    </div></div>
+  </div>
+</div>
+
+<%- include('../partials/layout/bottom') %>

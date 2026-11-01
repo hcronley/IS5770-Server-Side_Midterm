@@ -1,20 +1,16 @@
 <%- include('../partials/layout/top') %>
 
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <div>
-            <h1 class="h3 mb-0">Checkouts</h1>
-            <p class="text-muted mb-0">
-                <%= openList.length %> item(s) out right now
-            </p>
-        </div>
-        <a class="btn btn-primary" href="/checkouts/new">+ Check Out Gear</a>
-    </div>
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h1 class="h3 mb-0">Checkouts</h1>
+    <p class="text-muted mb-0"><%= openList.length %> item(s) out right now</p>
+  </div>
+  <a class="btn btn-primary" href="/checkouts/new">+ Check Out Gear</a>
+</div>
 
-    <%- include('../partials/components/checkout-table', { checkouts: openList, today: today,
-        emptyMessage: 'Nothing is checked out right now.' }) %>
+<%- include('../partials/components/checkout-table', { checkouts: openList, today: today, emptyMessage: 'Nothing is checked out right now.' }) %>
 
-        <h2 class="h5 my-3">Recently returned</h2>
-        <%- include('../partials/components/checkout-table', { checkouts: returnedList, today: today,
-            emptyMessage: 'Nothing has been returned yet.' }) %>
+<h2 class="h5 my-3">Recently returned</h2>
+<%- include('../partials/components/checkout-table', { checkouts: returnedList, today: today, emptyMessage: 'Nothing has been returned yet.' }) %>
 
-            <%- include('../partials/layout/bottom') %>
+<%- include('../partials/layout/bottom') %>

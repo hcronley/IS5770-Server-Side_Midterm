@@ -1,61 +1,42 @@
 <%- include('../partials/layout/top') %>
 
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <div>
-            <h1 class="h3 mb-0">Members</h1>
-            <p class="text-muted mb-0">
-                <%= members.length %> people can borrow gear
-            </p>
-        </div>
-    </div>
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h1 class="h3 mb-0">Members</h1>
+    <p class="text-muted mb-0"><%= members.length %> people can borrow gear</p>
+  </div>
+</div>
 
-    <div class="row g-4">
-        <div class="col-lg-8">
-            <div class="table-responsive">
-                <table class="table table-hover align-middle bg-white shadow-sm">
-                    <thead class="table-light">
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Joined</th>
-                            <th>Out now</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% members.forEach(function (member) { %>
-                            <% const out=counts[member.id] || 0; %>
-                                <tr>
-                                    <td><a href="/members/<%= member.id %>" class="fw-semibold">
-                                            <%= member.getFullName() %>
-                                        </a></td>
-                                    <td>
-                                        <%= member.email %>
-                                    </td>
-                                    <td>
-                                        <%= member.joinedOn %>
-                                    </td>
-                                    <td><span class="badge <%= out > 0 ? 'bg-warning' : 'bg-light text-dark' %>">
-                                            <%= out %>
-                                        </span></td>
-                                </tr>
-                                <% }) %>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <h2 class="h5">Add a member</h2>
-                    <form method="POST" action="/members">
-                        <input class="form-control mb-2" name="firstName" placeholder="First name" required>
-                        <input class="form-control mb-2" name="lastName" placeholder="Last name" required>
-                        <input class="form-control mb-3" name="email" type="email" placeholder="Email" required>
-                        <button class="btn btn-primary w-100">Add member</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+<div class="row g-4">
+  <div class="col-lg-8">
+    <div class="table-responsive">
+      <table class="table table-hover align-middle bg-white shadow-sm">
+        <thead class="table-light"><tr><th>Name</th><th>Email</th><th>Joined</th><th>Out now</th></tr></thead>
+        <tbody>
+          <% members.forEach(function (member) { %>
+            <% const out = counts[member.id] || 0; %>
+            <tr>
+              <td><a href="/members/<%= member.id %>" class="fw-semibold"><%= member.getFullName() %></a></td>
+              <td><%= member.email %></td>
+              <td><%= member.joinedOn %></td>
+              <td><span class="badge <%= out > 0 ? 'bg-warning' : 'bg-light text-dark' %>"><%= out %></span></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
     </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="card shadow-sm"><div class="card-body">
+      <h2 class="h5">Add a member</h2>
+      <form method="POST" action="/members">
+        <input class="form-control mb-2" name="firstName" placeholder="First name" required>
+        <input class="form-control mb-2" name="lastName" placeholder="Last name" required>
+        <input class="form-control mb-3" name="email" type="email" placeholder="Email" required>
+        <button class="btn btn-primary w-100">Add member</button>
+      </form>
+    </div></div>
+  </div>
+</div>
 
-    <%- include('../partials/layout/bottom') %>
+<%- include('../partials/layout/bottom') %>

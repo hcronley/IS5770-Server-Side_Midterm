@@ -1,25 +1,19 @@
 <%- include('../partials/layout/top') %>
 
-    <nav class="small mb-2"><a href="/members">&larr; All members</a></nav>
+<nav class="small mb-2"><a href="/members">&larr; All members</a></nav>
 
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <div>
-            <h1 class="h3 mb-0">
-                <%= member.getFullName() %>
-            </h1>
-            <p class="text-muted mb-0">
-                <%= member.email %> · member since <%= member.joinedOn %>
-            </p>
-        </div>
-        <a class="btn btn-primary" href="/checkouts/new">Check out gear</a>
-    </div>
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h1 class="h3 mb-0"><%= member.getFullName() %></h1>
+    <p class="text-muted mb-0"><%= member.email %> &middot; member since <%= member.joinedOn %></p>
+  </div>
+  <a class="btn btn-primary" href="/checkouts/new">Check out gear</a>
+</div>
 
-    <h2 class="h5 mb-3">Checked out now</h2>
-    <%- include('../partials/components/checkout-table', { checkouts: openList, today: today,
-        emptyMessage: 'Nothing checked out right now.' }) %>
+<h2 class="h5 mb-3">Checked out now</h2>
+<%- include('../partials/components/checkout-table', { checkouts: openList, today: today, emptyMessage: 'Nothing checked out right now.' }) %>
 
-        <h2 class="h5 my-3">History</h2>
-        <%- include('../partials/components/checkout-table', { checkouts: pastList, today: today,
-            emptyMessage: 'No past checkouts yet.' }) %>
+<h2 class="h5 my-3">History</h2>
+<%- include('../partials/components/checkout-table', { checkouts: pastList, today: today, emptyMessage: 'No past checkouts yet.' }) %>
 
-            <%- include('../partials/layout/bottom') %>
+<%- include('../partials/layout/bottom') %>
