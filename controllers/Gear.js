@@ -1,11 +1,8 @@
 const postgres = require("../app-data-source");
 const { IsNull } = require("typeorm");
 const { today } = require("../utils/dates");
+const { parseId } = require("../utils/ids");
 
-function parseId(value) {
-    const id = Number(value);
-    return Number.isInteger(id) ? id : null;
-}
 
 async function index(req, res) {
     const gearRepo = postgres.getRepository("Gear");
