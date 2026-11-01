@@ -5,4 +5,14 @@ function today() {
     return `${d.getFullYear()}-${mm}-${dd}`;
 }
 
-module.exports = { today };
+const dayjs = require("dayjs");
+
+function dueLabel(dueOn, todayStr) {
+    const days = dayjs(dueOn).diff(dayjs(todayStr), "day");
+
+    if (days < 0) return "Overdue by " + Math.abs(days) + (Math.abs(days) === 1 ? " day" : " days");
+    if (days === 0) return "Due today";
+    return "Due in " + days + (days === 1 ? " day" : " days");
+}
+
+module.exports = { today, dueLabel };

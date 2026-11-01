@@ -4,11 +4,12 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const PORT = 3000;
-const { today } = require("./utils/dates");
+const { today, dueLabel } = require("./utils/dates");
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended:true }));
 app.use(express.static("public"));
+app.locals.dueLabel = dueLabel;
 
 const postgres = require("./app-data-source");
 const { IsNull, LessThan } = require("typeorm");

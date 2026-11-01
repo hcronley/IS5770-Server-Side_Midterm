@@ -17,9 +17,13 @@
               <% if (checkout.returnedOn) { %>
                 <span class="text-muted">Returned <%= checkout.returnedOn %></span>
               <% } else if (checkout.dueOn < today) { %>
-                <span class="badge bg-danger">Overdue (due <%= checkout.dueOn %>)</span>
-              <% } else { %>
-                <span class="badge bg-secondary">Due <%= checkout.dueOn %></span>
+                <span class="badge bg-danger" title="Due <%= checkout.dueOn %>">
+                  <%= dueLabel(checkout.dueOn, today) %>
+                </span>
+                <% } else { %>
+                  <span class="badge bg-secondary" title="Due <%= checkout.dueOn %>">
+                  <%= dueLabel(checkout.dueOn, today) %>
+                </span>
               <% } %>
             </td>
             <td class="text-end">
