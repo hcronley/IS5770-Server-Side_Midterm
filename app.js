@@ -53,6 +53,9 @@ app.use("/gear", gearRouter);
 const memberRouter = require("./routes/Member");
 app.use("/members", memberRouter);
 
+const checkoutRouter = require("./routes/Checkouts");
+app.use("/checkouts", checkoutRouter);
+
 postgres.initialize().then(()=>{
   app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);

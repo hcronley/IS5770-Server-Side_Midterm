@@ -39,7 +39,7 @@ async function index(req, res) {
 }
 
 async function show(req, res) {
-    const id = Number(req.params.id);
+    const id = parseId(req.params.id);
 
     if (!Number.isInteger(id)) {
         return res.status(404).send("Gear not found");
